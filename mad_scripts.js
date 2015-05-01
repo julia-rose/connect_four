@@ -8,7 +8,12 @@ $(document).ready(function(){
 
 		$(".piece").each(function(index, value) { 
 		  $(this).click(function(){
-		    	// console.log("Piece " + index + " was clicked.");
+		  	//prevent already-clicked pieces from changing color again
+		    if ($(this).css("background-color") === "rgb(255, 0, 0)" || $(this).css("background-color") === "rgb(0, 0, 0)") {
+		    	console.log("This piece already been clicked yo");
+		    	return;
+		    }
+
 		    if(turn % 2 === 0){
 		    	$(this).css("background-color", "red");
 		    } else{
